@@ -1,0 +1,92 @@
+{% extends "KamilAddressBookBundle::baseAB.html.twig" %}
+
+{% block title %}KamilAddressBookBundle:User:showOneEntity{% endblock %}
+
+{% block body %}
+    <h2>Contact:</h2><a href="{{ url('deleteContact', {'id':user.id})}}">Delete Contact</a><br>
+                     <a href="{{ url('modify', {'id':user.id})}}">Modify Contact</a>
+    <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row">Name:</th>
+            <td>{{ user.name }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Surname:</th>
+            <td>{{  user.surname }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Description:</th>
+            <td>{{ user.description }}</td>
+          </tr>
+        </tbody>
+    </table>
+          <hr>
+          <h2>Address:</h2>
+        <a href="{{ url('modify', {'id':user.id})}}">Add/modify Address</a><br>
+    {% if user.address%}
+        <a href="{{ url('deleteAddress', {'id':user.id})}}">Delete Address</a><br>
+    <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row">City:</th>
+            <td>{{ user.address.city }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Street:</th>
+            <td>{{  user.address.street }}</td>
+          </tr>
+          <tr>
+            <th scope="row">House:</th>
+            <td>{{ user.address.houseNumber }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Apartment:</th>
+            <td>{{ user.address.apartmentNumber }}</td>
+          </tr>
+        </tbody>
+    </table>
+    {% else%}
+        <h4>No Address...</h4>
+    {% endif%}
+    <hr>
+    <h2>Email Address:</h2>
+        <a href="{{ url('modify', {'id':user.id})}}">Add/modify Email Address</a><br>
+    {% if user.email%}
+        <a href="{{ url('deleteEmail', {'id':user.id})}}">Delete Email Address</a><br>
+    <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row">Email:</th>
+            <td>{{ user.email.emailAddress }}</td>
+          </tr>        
+          <tr>
+            <th scope="row">Email type:</th>
+            <td>{{ user.email.emailType }}</td>
+          </tr> 
+        </tbody>
+    </table>    
+    {% else%}
+        <h4>No Email Address...</h4>
+    {% endif%}
+    <hr>
+    <h2>Telephone Number:</h2>
+        <a href="{{ url('modify', {'id':user.id})}}">Add/modify Telephone Number</a><br>
+    {% if user.telephone%}
+        <a href="{{ url('deleteTelephone', {'id':user.id})}}">Delete Telephone Number</a><br>
+    <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row">Telephone Number:</th>
+            <td>{{ user.telephone.telephoneNumber }}</td>
+          </tr>        
+          <tr>
+            <th scope="row">Telephone Type:</th>
+            <td>{{ user.telephone.telephoneType }}</td>
+          </tr> 
+        </tbody>
+    </table>    
+    {% else%}
+        <h4>No Telephone Number...</h4>
+    {% endif%}
+{% endblock %}

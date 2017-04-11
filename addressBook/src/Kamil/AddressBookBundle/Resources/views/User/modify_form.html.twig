@@ -1,0 +1,77 @@
+{% extends "KamilAddressBookBundle::baseAB.html.twig" %}
+
+{% block title %}KamilAddressBookBundle:User:modifyForm{% endblock %}
+
+{% block body %}
+    <h2>Modify data:</h2>
+{{ form_start(form) }}
+        
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name, {'attr':{'class':'form-control', 'placeholder':'Name'}}) }} 
+        </div>
+        <div class="form-group">
+            {{ form_label(form.surname)}}
+            {{ form_widget(form.surname, {'attr':{'class':'form-control', 'placeholder':'Surname'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.description)}}
+            {{ form_widget(form.description, {'attr':{'class':'form-control', 'placeholder':'Description'}}) }}
+        </div>
+            {{ form_widget(form.save, {'attr':{'class':'btn btn-default'}}) }}
+    
+    {{ form_end(form)}}
+    
+    <h2>Add/change address</h2>
+    
+{{ form_start(form2) }}
+        
+        <div class="form-group">
+            {{ form_label(form2.city) }}
+            {{ form_widget(form2.city, {'attr':{'class':'form-control', 'placeholder':'City'}}) }} 
+        </div>
+        <div class="form-group">
+            {{ form_label(form2.street)}}
+            {{ form_widget(form2.street, {'attr':{'class':'form-control', 'placeholder':'Street'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form2.houseNumber)}}
+            {{ form_widget(form2.houseNumber, {'attr':{'class':'form-control', 'placeholder':'houseNumber'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form2.apartmentNumber) }}
+            {{ form_widget(form2.apartmentNumber, {'attr':{'class':'form-control', 'placeholder':'apartmentNumber'}}) }} 
+        </div>
+            {{ form_widget(form2.save, {'attr':{'class':'btn btn-default'}}) }}
+    
+{{ form_end(form2)}}
+    <h2>Add/change email</h2>
+{{ form_start(form3) }}
+        
+        <div class="form-group">
+            {{ form_label(form3.emailAddress) }}
+            {{ form_widget(form3.emailAddress, {'attr':{'class':'form-control', 'placeholder':'Email Address'}}) }} 
+        </div>
+        <div class="form-group">
+            {{ form_label(form3.emailType) }}
+            {{ form_widget(form3.emailType, {'attr':{'class':'form-control', 'placeholder':'Email Type'}}) }} 
+        </div>
+            {{ form_widget(form3.save, {'attr':{'class':'btn btn-default'}}) }}
+    
+{{ form_end(form3)}}
+   <h2>Add/change telephone number</h2>
+{{ form_start(form4) }}
+        
+        <div class="form-group">
+            {{ form_label(form4.telephoneNumber) }}
+            {{ form_widget(form4.telephoneNumber, {'attr':{'class':'form-control', 'placeholder':'Telephone Number'}}) }} 
+        </div>
+        <div class="form-group">
+            {{ form_label(form4.telephoneType) }}
+            {{ form_widget(form4.telephoneType, {'attr':{'class':'form-control', 'placeholder':'Telephone Number'}}) }} 
+        </div>
+            {{ form_widget(form4.save, {'attr':{'class':'btn btn-default'}}) }}
+    
+{{ form_end(form4)}}
+{% endblock %}
+        

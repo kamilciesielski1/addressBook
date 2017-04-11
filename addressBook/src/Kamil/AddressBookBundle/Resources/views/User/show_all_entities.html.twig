@@ -1,0 +1,25 @@
+{% extends "KamilAddressBookBundle::baseAB.html.twig" %}
+
+{% block title %}Show all Users{% endblock %}
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>SURNAME:</td>
+                <td>NAME:</td>
+                <td>DESCRIPTION:</td>
+                <td>Functions:</td>
+            </tr>
+        </thead>
+        {% for user in users%}
+            <tr>
+                <td><a href="{{ url('showContact', {'id':user.id})}}">{{ user.surname }}</a></td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.description }}</td>
+                <td><a href="{{ url('modify', {'id':user.id})}}">Modify</a></td>
+                <td><a href="{{ url('deleteContact', {'id':user.id})}}">Delete Contact</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
